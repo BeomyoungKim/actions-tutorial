@@ -13,5 +13,6 @@ jobs:
       - name: Slash Command Dispatch
         uses: peter-evans/slash-command-dispatch@v1
         with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           commands: test
           issue-type: pull-request
