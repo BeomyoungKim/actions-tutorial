@@ -23,7 +23,7 @@ jobs:
         uses: tj-actions/changed-files@v29.0.7
         with:
           files: |
-            test.py
+            !test.py
             test2.py
           files_ignore: |
             test.py
