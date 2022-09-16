@@ -24,6 +24,7 @@ jobs:
         with:
           files: |
             test.py
+            test2.py
           files_ignore: |
             test.py
 
