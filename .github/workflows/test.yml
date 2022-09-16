@@ -1,0 +1,30 @@
+name: Test Manual
+
+on:
+  repository_dispatch:
+    types: [test-command]
+
+jobs:
+  test:
+    name: 
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+           fetch-depth: 2
+
+      - name: Get specific changed files
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v29
+        with:
+          files: |
+            !test.py
+          files_ignore: |
+            test.py
+
+      - name: Test
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: echo "test"
