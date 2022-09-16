@@ -25,8 +25,6 @@ jobs:
           files: |
             !test.py
             test2.py
-          files_ignore: |
-            test.py
 
       - name: Test
         if: steps.changed-files-specific.outputs.any_changed == 'true'
