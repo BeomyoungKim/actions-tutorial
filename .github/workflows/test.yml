@@ -1,8 +1,10 @@
 name: Test Manual
 
 on:
-  repository_dispatch:
-    types: [test-command]
+  push:
+    branches:
+      - master
+      - develop
 
 jobs:
   test:
