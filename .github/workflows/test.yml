@@ -20,7 +20,7 @@ jobs:
 
       - name: Get specific changed files
         id: changed-files-specific
-        uses: tj-actions/changed-files@v29.0.7
+        uses: tj-actions/changed-files@41
         with:
           files: |
             !test.py
