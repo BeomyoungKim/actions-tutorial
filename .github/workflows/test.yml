@@ -1,8 +1,10 @@
 name: Test Manual
 
 on:
-  repository_dispatch:
-    types: [test-command]
+  push:
+    branches:
+      - master
+      - develop
 
 jobs:
   test:
@@ -18,12 +20,11 @@ jobs:
 
       - name: Get specific changed files
         id: changed-files-specific
-        uses: tj-actions/changed-files@v29.0.7
+        uses: tj-actions/changed-files@v41
         with:
           files: |
             !test.py
-          files_ignore: |
-            test.py
+            test2.py
 
       - name: Test
         if: steps.changed-files-specific.outputs.any_changed == 'true'
