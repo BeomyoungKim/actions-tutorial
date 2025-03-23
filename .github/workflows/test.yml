@@ -1,8 +1,10 @@
 name: Test Manual
 
 on:
-  repository_dispatch:
-    types: [test-command]
+  push:
+    branches:
+      - master
+      - develop
 
 jobs:
   test:
@@ -22,8 +24,7 @@ jobs:
         with:
           files: |
             !test.py
-          files_ignore: |
-            test.py
+            test2.py
 
       - name: Test
         if: steps.changed-files-specific.outputs.any_changed == 'true'
